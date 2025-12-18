@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вариант 1 - Структура страницы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Заголовок страницы -->
+    <header>
+    	<div class="header-container">
+        	<div class="logo">
+           	 <img src="images/Avtor.jpg" alt="Логотип">
+        	</div>
+        	<div class="nav-buttons">
+            <button class="nav-btn">Новый</button>
+            <button class="nav-btn">Мужчины</button>
+            <button class="nav-btn">Женщины</button>
+            <button class="nav-btn">Дети</button>
+        </div>
+        <div class="search-section">
+            <input type="text" class="search-input" placeholder="Найдите что нибудь">
+            <button class="btn btn-primary btn-icon">
+              <img src="images/hearts.svg" alt="hearts" style="width: 20px; height: 20px;">
+              <span class="icon-counter">0</span>
+            </button>
+            <button class="btn btn-primary btn-icon">
+                <img src="images/shopping.svg" alt="cart" style="width: 20px; height: 20px;">
+                <span class="icon-counter">0</span>
+            </button>
+            <button class="btn btn-primary">Войти</button>
+        </div>
+       </div>
+    </header>
+    
+    <!-- Панель навигации -->
+    <div class="page-layout">
+        <nav class="sidebar">
+            <div class="nav-section">
+                <div class="nav-item">
+                    <img src="images/Nav/dashboard.svg" alt="Панель инструментов">
+                    <span>Панель инструментов</span>
+                </div>
+                
+                <div class="nav-section-title">Информация</div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Audience.svg" alt="Аудитория">
+                    <span>Аудитория</span>
+                </div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Posts.svg" alt="Посты">
+                    <span>Посты</span>
+                </div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/schedules.svg" alt="Расписания">
+                    <span>Расписания</span>
+                </div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Promote.svg" alt="Продвигать">
+                    <span>Продвигать</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Доход</div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Income_and_taxes.svg" alt="Доходы и налоги">
+                    <span>Доходы и налоги</span>
+                </div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Returns.svg" alt="Возвраты">
+                    <span>Возвраты</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Действия</div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Profile.svg" alt="Профиль">
+                    <span>Профиль</span>
+                </div>
+                
+                <div class="nav-item">
+                    <img src="images/Nav/Log_out.svg" alt="Выйти">
+                    <span>Выйти</span>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <!-- Ваш основной контент здесь -->
+        </main>
+    </div>
+    
+
+    <!-- Нижний колонтитул -->
+    <footer>
+        <!-- Верхний блок -->
+        <div class="footer-top">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Информационный бюллетень</h3>
+                    <p>Подпишитесь на нашу рассылку и будьте в курсе последних новостей, объединенных с автоматическим предложением.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Ваш адрес электронной почты">
+                        <button>Подписаться на рассмотрение</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Нижний блок -->
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-section">                   
+                    <div class="footer-columns">
+                        <div class="footer-column">
+                            <h4>О нас</h4>
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4>Услуги</h4>
+                            <ul>
+                                <li>Веб-разработка</li>
+                                <li>Разработка мобильных приложений</li>
+                                <li>UI/UX дизайн</li>
+                                <li>Цифровой Маркетинг</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Ресурсы</h4>
+                            <ul>
+                                <li>Вебинары</li>
+                                <li>Электронные книги</li>
+                                <li>Шаблоны</li>
+                                <li>Учебники</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>О нас</h4>
+                            <ul>
+                                <li>Наша история</li>
+                                <li>Масса и ценности</li>
+                                <li>Команда</li>
+                                <li>Отзывы</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
