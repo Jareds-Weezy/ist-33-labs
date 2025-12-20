@@ -1,0 +1,595 @@
+:root {
+    --primary-color: #bd257f;
+    --text-color: #ffffff;
+    --text-muted: #888;
+    --bg-color: #2A2A2A;
+    --seat-standard: #a5a5a5;
+    --seat-comfort: #e5cfee;
+    --seat-occupied: rgba(80, 80, 80, 0.8);
+    --seat-selected: #bd257f;
+    --btn-disabled: #d93c99;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid var(--text-color);
+}
+
+.login-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-link svg {
+    fill: var(--text-color);
+}
+
+/* Movie Info */
+.movie-info {
+    padding: 30px 0;
+    border-bottom: 1px solid #444;
+}
+
+.movie-info-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.movie-poster {
+    /* No img tag, use div background */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: url('../images/Placat.png');
+    background-size: cover;
+    background-position: center top;
+    /* Show top (faces) */
+    box-shadow: 0 4px 20px rgba(189, 37, 127, 0.3);
+    flex-shrink: 0;
+}
+
+/* Removed .movie-poster img as we likely use background-image on div now based on previous edits. 
+   Wait, if HTML uses img tag inside div, let's check index.html from memory or tool. 
+   Previous edit said 'background-image' on .movie-poster.
+   Let's check if there is an IMG inside it. 
+   The view_file showed:
+   86: .movie-poster img { ... }
+   This implies there IS an img tag. 
+   So I should target the img.
+*/
+.movie-poster img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    /* Show faces */
+}
+
+.movie-details {
+    flex-grow: 1;
+}
+
+.movie-title {
+    font-size: 36px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.session-info {
+    color: var(--text-muted);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.separator {
+    color: #555;
+}
+
+.age-limit {
+    border: 1px solid #666;
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 14px;
+    color: var(--text-muted);
+    width: 32px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Screen */
+.cinema-hall {
+    padding: 40px 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen-container {
+    width: 100%;
+    max-width: 100%;
+    /* Stretched to cover grid */
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* Seats Grid */
+.seats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    /* Gap between seats */
+    position: relative;
+    align-items: center;
+}
+
+.row-label {
+    position: absolute;
+    color: var(--text-color);
+    font-size: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.row-label.left {
+    left: -30px;
+}
+
+.row-label.right {
+    right: -30px;
+}
+
+.seat {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+/* Seat SVGs fill color control */
+.seat svg path {
+    fill: var(--seat-standard);
+    /* Default */
+}
+
+.seat.comfort svg path {
+    fill: var(--seat-comfort);
+}
+
+.seat.occupied svg path {
+    fill: var(--seat-occupied);
+}
+
+.seat.selected svg path {
+    fill: var(--seat-selected);
+}
+
+/* Wheelchair styling */
+.seat.wheelchair {
+    cursor: default;
+    /* Not selectable mostly?? or is it? */
+    /* Assuming just iconic for now, but if selectable: */
+    width: 40px;
+    /* Bit wider gap maybe? Prompt schema shows it in a gap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat.wheelchair svg {
+    width: 24px;
+    height: 24px;
+}
+
+.seat.wheelchair svg path {
+    fill: #fff;
+    /* Icon color */
+}
+
+/* Interact */
+.seat:not(.occupied):not(.selected):not(.wheelchair):hover .icon-chair {
+    display: none;
+}
+
+.seat .icon-ticket {
+    display: none;
+}
+
+.seat:not(.occupied):not(.selected):not(.wheelchair):hover .icon-ticket {
+    display: block;
+    fill: var(--primary-color);
+}
+
+.seat.selected:hover .icon-chair {
+    display: none;
+}
+
+.seat.selected:hover .icon-remove {
+    display: block !important;
+}
+
+.seat .icon-remove {
+    display: none;
+    fill: var(--seat-standard);
+}
+
+.icon-chair path {
+    fill: inherit;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* responsive */
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.seat-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.legend-text {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--text-muted);
+}
+
+/* Divider */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin: 20px 0;
+}
+
+/* Selected Panel */
+.selected-panel {
+    background-color: #333;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.selected-panel.hidden {
+    display: none;
+}
+
+.panel-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Selected Item Styling */
+.selected-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid #444;
+}
+
+.ticket-info {
+    flex: 0 0 20%;
+    /* Reduced width */
+    color: #fff;
+    font-size: 14px;
+}
+
+.ticket-type {
+    flex: 0 0 20%;
+    /* Reduced width */
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+}
+
+.ticket-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    /* Remaining space */
+    justify-content: flex-start;
+    /* Align LEFT */
+    padding-left: 20px;
+}
+
+.ticket-badge {
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    color: #aaa;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ticket-price {
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.btn-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    margin-left: auto;
+    /* Push to right */
+}
+
+/* Actions */
+.actions-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    width: 195px;
+    height: 45px;
+    border-radius: 22px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #666;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #a01f6b;
+}
+
+.btn-primary:disabled {
+    background-color: var(--btn-disabled);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid #444;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link svg {
+    fill: #fff;
+    width: 40px;
+    height: 40px;
+}
+
+/* Animations */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* MODALS */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    background-size: cover;
+    background-position: center top;
+    /* Show top (faces) */
+    box-shadow: 0 4px 20px rgba(189, 37, 127, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    color: #000;
+    padding-right: 20px;
+}
+
+.close-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+    line-height: 1;
+}
+
+.modal-body {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-align: left;
+    color: #444;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-content {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Button align center */
+}
+
+.modal-text {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    text-align: center;
+    /* Text centered */
+    width: 100%;
+    color: #000;
+}
+
+.modal-btn {
+    width: 200px;
+}
