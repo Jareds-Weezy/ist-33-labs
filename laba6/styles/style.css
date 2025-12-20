@@ -1,0 +1,273 @@
+/* CSS RESET - do not remove */
+/* Reset default browser styles and provide a consistent starting point */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+}
+
+/*  Set the font */
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+}
+
+/* STYLES */
+/* Write your CSS below */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    background: #F5F5F5;
+    padding: 20px 0;
+}
+
+.centered-element {
+    width: 60%;
+    padding: 30px;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Стили для изображения с текстом */
+.image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Стили для текстового контента */
+.description {
+    margin-bottom: 30px;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+.ingredients, .instructions {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.ingredients h2, .instructions h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #2ecc71; /* Зеленый вместо оранжевого */
+    padding-bottom: 10px;
+}
+
+.ingredients h3, .instructions h3 {
+    color: #2ecc71; /* Зеленый вместо оранжевого */
+    margin: 20px 0 15px 0;
+    font-size: 1.3rem;
+}
+
+.ingredients ul, .instructions ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ingredients li, .instructions li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.ingredients ul {
+    list-style-type: none;
+}
+
+.ingredients li:before {
+    content: "•";
+    color: #2ecc71; /* Зеленый вместо оранжевого */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.instructions ol {
+    list-style-type: decimal;
+}
+
+.instructions li {
+    margin-bottom: 12px;
+}
+
+.conclusion {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: #27ae60; /* Темно-зеленый для текста */
+    border: 1px solid #d5f4e6; /* Светло-зеленая рамка */
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .centered-element {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .image-title {
+        font-size: 2rem;
+    }
+    
+    .header-image {
+        height: 200px;
+    }
+    
+    .ingredients h2, .instructions h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Стили для информационной панели - простой вариант */
+.info-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin: 25px 0;
+    border: 1px solid #e9ecef;
+}
+
+.info-item {
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.info-item:hover {
+    background: rgba(46, 204, 113, 0.05); /* Светло-зеленый при наведении */
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 8px;
+    transition: all 0.3s ease;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 3px 0;
+    color: #2ecc71; /* Зеленый вместо #2c3e50 */
+}
+
+.info-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Для динамической смены иконок */
+.icon-container {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-default, .icon-hover {
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.icon-hover {
+    opacity: 0;
+}
+
+.info-item:hover .icon-default {
+    opacity: 0;
+}
+
+.info-item:hover .icon-hover {
+    opacity: 1;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .info-panel {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+    }
+    
+    .info-item {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 10px 15px;
+    }
+    
+    .icon-container {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+    
+    .info-content {
+        flex: 1;
+    }
+    
+    .info-value {
+        font-size: 16px;
+    }
+    
+    .info-label {
+        font-size: 11px;
+    }
+}
