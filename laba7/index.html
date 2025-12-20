@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тарифные планы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="view-toggle">
+            <button class="toggle-btn" id="toggleView">
+                <span class="desktop-only">Desktop</span>
+                <span class="mobile-only">Mobile</span>
+                <span>▼</span>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <button data-view="desktop">Desktop представление</button>
+                <button data-view="mobile">Mobile представление</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="desktop-only">
+            <ul>
+                <li><a href="#" class="active">Главная</a></li>
+                <li><a href="#">Тарифы</a></li>
+                <li><a href="#">Функции</a></li>
+                <li><a href="#">Поддержка</a></li>
+                <li><a href="#">О нас</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="intro">
+                <h1>Выберите подписку</h1>
+                <p>выберите план, соответствующий вашим потребностям</p>
+            </section>
+
+            <section class="plans">
+                <div class="plan">
+                    <h3>Старт</h3>
+                    <div class="price free">Бесплатно</div>
+                    <div class="trial">Бесплатная регистрация</div>
+                    <ul class="features">
+                        <li>50 поколений изображений</li>
+                        <li>500 кредитов</li>
+                        <li>Ежемесячно 100 кредитов бесплатно</li>
+                        <li>Поддержка клиентов</li>
+                        <li>Выделенный сервер</li>
+                        <li>Приоритетные поколения</li>
+                        <li>50 ГБ облачного хранилища</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Начать</a>
+                </div>
+
+                <div class="plan featured">
+                    <h3>Профи</h3>
+                    <div class="price">2000/мес.</div>
+                    <div class="trial">7-дневная бесплатная пробная версия</div>
+                    <ul class="features">
+                        <li>300 походных изображений</li>
+                        <li>2000 кредитов</li>
+                        <li>Ежемесячно 1000 кредитов бесплатно</li>
+                        <li>Поддержка клиентов</li>
+                        <li>Выделенный сервер</li>
+                        <li>Приоритетные локальные</li>
+                        <li>500 ГБ облачного хранилища</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Начать</a>
+                </div>
+
+                <div class="plan">
+                    <h3>Бизнес</h3>
+                    <div class="price">4500/мес.</div>
+                    <div class="trial">7-дневная бесплатная пробная версия</div>
+                    <ul class="features">
+                        <li>600 походных изображений</li>
+                        <li>4000 кредитов</li>
+                        <li>Ежемесячно 2000 кредитов бесплатно</li>
+                        <li>Поддержка клиентов</li>
+                        <li>Выделенный сервер</li>
+                        <li>Приоритетные локальные</li>
+                        <li>1000 ГБ облачного хранилища</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Начать</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>©  Все права защищены.</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
