@@ -6,7 +6,7 @@ function App() {
   // Значение по умолчанию согласно варианту задания
   const [text, setText] = useState('Хуснутдинов Руслан Зуфарович')
   const [qrUrl, setQrUrl] = useState('')
-  const [size, setSize] = useState(300) // Размер QR кода в пикселях
+  const [size, setSize] = useState(280) // Размер QR кода в пикселях
 
   // Генерация QR кода при изменении текста или размера
   useEffect(() => {
