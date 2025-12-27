@@ -1,5 +1,5 @@
 {
-    "name": "QR Code Generator Lab 10",
+    "name": "QR Code Generator",
     "short_name": "QR Gen",
     "start_url": "./index.html",
     "display": "standalone",
